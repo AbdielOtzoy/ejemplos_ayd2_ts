@@ -1,155 +1,150 @@
-# Ejemplos prácticos: patrones de diseño
+# Ejemplos prácticos de patrones de diseño y SOLID
 
-Ejemplos en TypeScript para la clase **Análisis y Diseño de Sistemas 2**. El orden y los escenarios siguen las presentaciones de [`presentaciones/`](./presentaciones/).
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Licencia MIT](https://img.shields.io/badge/licencia-MIT-green.svg)](./LICENSE)
 
-## Estructura
+Repositorio académico para **Análisis y Diseño de Sistemas 2 (ADS2)**. Contiene 22 ejemplos pequeños y ejecutables en TypeScript sobre fundamentos, principios SOLID y patrones de diseño creacionales, estructurales y de comportamiento. Las presentaciones de clase están disponibles en [`presentaciones/`](./presentaciones/).
 
-```text
-ejemplos/
-├── src/
-│   ├── fundamentos/      # patrones, librerías y frameworks
-│   ├── solid/            # principios SOLID de la semana 02
-│   ├── creacionales/     # cómo se crean los objetos
-│   ├── estructurales/    # cómo se ensamblan los objetos
-│   ├── comportamiento/    # cómo colaboran los objetos
-│   └── index.ts           # ejecuta todas las demostraciones
-└── dist/                  # salida generada por TypeScript
+## Comenzar en un minuto
 
-presentaciones/            # materiales PDF y PPTX de las clases
-```
-
-Las presentaciones usan el formato `Semana NN — Tema.ext`, con dos dígitos en el número de semana para conservar el orden cronológico.
-
-## Semana 02: fundamentos, SOLID y frameworks
-
-Los ejemplos de esta semana muestran los cinco principios SOLID y la diferencia entre llamar una librería y ser llamado por un framework:
-
-1. SRP — separar cálculo, reporte y persistencia.
-2. OCP — agregar tipos de empleado sin modificar el cálculo de nómina.
-3. LSP — modelar capacidades para que las subclases sean sustituibles.
-4. ISP — dividir una interfaz grande en contratos por capacidad.
-5. DIP — inyectar repositorios detrás de una abstracción.
-6. Librería vs. framework — comparar quién controla el flujo.
-
-Archivos:
-
-```text
-ejemplos/src/solid/srp.ts
-ejemplos/src/solid/ocp.ts
-ejemplos/src/solid/lsp.ts
-ejemplos/src/solid/isp.ts
-ejemplos/src/solid/dip.ts
-ejemplos/src/fundamentos/libreria-vs-framework.ts
-```
-
-## Semana 03: patrones creacionales
-
-Los ejemplos creacionales ya existentes corresponden a esta semana y se encuentran en `ejemplos/src/creacionales/`.
-
-## Patrones creacionales
-
-1. Factory Method — crear notificaciones por canal.
-2. Abstract Factory — crear familias de componentes de interfaz compatibles.
-3. Singleton — centralizar una configuración única y controlada.
-4. Builder — construir un reporte con opciones legibles.
-5. Prototype — clonar una configuración ya validada.
-
-## Patrones de comportamiento
-
-6. Observer — notificar a estudiantes suscritos cuando un curso publica material.
-7. Command — encapsular acciones del portal académico para reutilizarlas desde botones.
-8. Chain of Responsibility — validar una inscripción mediante una cadena de comprobaciones.
-9. Visitor — agregar reportes sin modificar las clases de cursos y estudiantes.
-10. Mediator — coordinar los controles de un formulario de inscripción.
-
-## Semana 04: patrones estructurales
-
-La presentación desarrolla cuatro patrones y presenta dos más como referencia:
-
-1. Adapter — traducir una interfaz antigua para que pueda colaborar con el portal.
-2. Proxy — controlar el acceso y retrasar la creación de un objeto pesado.
-3. Facade — ocultar varios pasos detrás de una interfaz simple.
-4. Decorator — agregar funcionalidades por composición y en tiempo de ejecución.
-5. Bridge — separar la abstracción de la tecnología que la implementa.
-6. Flyweight — compartir estado común entre muchos objetos parecidos.
-
-Los ejemplos se encuentran en `ejemplos/src/estructurales/`. Composite no se implementa porque únicamente aparece en la portada de la presentación y no se desarrolla durante la clase.
-
-La idea central de los ejemplos creacionales es separar el código que **usa** un objeto del código que decide **cómo se crea**. En los ejemplos de comportamiento, la atención está en cómo los objetos colaboran y se comunican. Los ejemplos de SOLID muestran cómo distribuir responsabilidades y dependencias. Cada ejemplo incluye un caso de uso, una implementación y una demostración breve en `src/index.ts`.
-
-## Ejecutar
-
-Requiere Node.js 18 o superior.
+Requisitos: Node.js 18 o superior y npm.
 
 ```bash
 cd ejemplos
 npm install
+npm run check
 npm run build
 npm start
 ```
 
-Para revisar un patrón concreto, abre uno de estos archivos:
+`npm start` ejecuta las 22 demostraciones en un orden didáctico. Para generar JavaScript en `ejemplos/dist/`, usa `npm run build`.
 
-```text
-ejemplos/src/solid/srp.ts
-ejemplos/src/solid/ocp.ts
-ejemplos/src/solid/lsp.ts
-ejemplos/src/solid/isp.ts
-ejemplos/src/solid/dip.ts
-ejemplos/src/fundamentos/libreria-vs-framework.ts
-ejemplos/src/creacionales/factory-method.ts
-ejemplos/src/creacionales/abstract-factory.ts
-ejemplos/src/creacionales/singleton.ts
-ejemplos/src/creacionales/builder.ts
-ejemplos/src/creacionales/prototype.ts
-ejemplos/src/comportamiento/observer.ts
-ejemplos/src/comportamiento/command.ts
-ejemplos/src/comportamiento/chain-of-responsibility.ts
-ejemplos/src/comportamiento/visitor.ts
-ejemplos/src/comportamiento/mediator.ts
-ejemplos/src/estructurales/adapter.ts
-ejemplos/src/estructurales/proxy.ts
-ejemplos/src/estructurales/facade.ts
-ejemplos/src/estructurales/decorator.ts
-ejemplos/src/estructurales/bridge.ts
-ejemplos/src/estructurales/flyweight.ts
+## Recorrido del material
+
+```mermaid
+flowchart LR
+    A["Fundamentos"] --> B["SOLID"]
+    B --> C["Creacionales"]
+    C --> D["Estructurales"]
+    D --> E["Comportamiento"]
+
+    S2["Semana 02"] -.-> A
+    S2 -.-> B
+    S3["Semana 03"] -.-> C
+    S4["Semana 04"] -.-> D
+    S5["Semana 05"] -.-> E
 ```
 
-## Guía rápida de selección
+El flujo parte de la inversión de control y la separación de responsabilidades, continúa con la creación y composición de objetos, y termina con sus formas de colaboración. El orden de `ejemplos/index.ts` sigue este recorrido.
 
-| Problema | Patrón | Pregunta clave |
-| --- | --- | --- |
-| Elegir una variante de un producto | Factory Method | ¿Qué creador decide el tipo exacto? |
-| Crear productos relacionados y compatibles | Abstract Factory | ¿Cómo evitamos mezclar familias? |
-| Garantizar una instancia única | Singleton | ¿La unicidad es realmente necesaria? |
-| Construir un objeto con muchas opciones | Builder | ¿Hay parámetros opcionales o pasos? |
-| Reutilizar un objeto ya configurado | Prototype | ¿Copiar es más conveniente que reconstruir? |
+## Catálogo de ejemplos
 
-### Guía rápida: comportamiento
+Cada fila enlaza directamente al código fuente. La columna “Riesgo” señala una decisión que conviene discutir en clase, no necesariamente un error del ejemplo.
 
-| Problema | Patrón | Pregunta clave |
-| --- | --- | --- |
-| Muchos objetos necesitan enterarse de un cambio | Observer | ¿Quién quiere recibir la notificación? |
-| Una acción puede venir de botones, menús o atajos | Command | ¿Puedo convertir la solicitud en un objeto? |
-| Varias validaciones deben ejecutarse en orden | Chain of Responsibility | ¿Quién procesa o detiene la solicitud? |
-| Necesito nuevos algoritmos sobre clases existentes | Visitor | ¿Puedo separar el algoritmo de los datos? |
-| Muchos controles se conocen entre sí | Mediator | ¿Puede un objeto coordinar la conversación? |
+| Categoría | Ejemplo | Problema | Razón para usarlo | Riesgo o pregunta para discutir |
+| --- | --- | --- | --- | --- |
+| Fundamentos | [Librería vs. framework](./ejemplos/fundamentos/libreria-vs-framework.ts) | Entender quién controla el flujo de ejecución. | Contrasta una llamada explícita con inversión de control. | ¿Cuánta autonomía conserva la aplicación? |
+| SOLID | [SRP](./ejemplos/solid/srp.ts) | Una clase calcula, reporta y persiste a la vez. | Separa responsabilidades y razones para cambiar. | ¿Dónde termina cada responsabilidad? |
+| SOLID | [OCP](./ejemplos/solid/ocp.ts) | La nómina debe admitir nuevos tipos de empleado. | Extiende mediante nuevas implementaciones sin editar el cálculo. | ¿La abstracción realmente representa las variaciones? |
+| SOLID | [LSP](./ejemplos/solid/lsp.ts) | No todas las aves pueden volar. | Modela capacidades para mantener la sustitución válida. | ¿Qué contrato se rompería con una herencia incorrecta? |
+| SOLID | [ISP](./ejemplos/solid/isp.ts) | Una interfaz grande obliga a implementar métodos innecesarios. | Divide el contrato por capacidades de cliente. | ¿Cuándo varias interfaces pequeñas se vuelven ruido? |
+| SOLID | [DIP](./ejemplos/solid/dip.ts) | El servicio no debe depender de un repositorio concreto. | Inyecta una abstracción y permite cambiar el detalle. | ¿Quién compone las dependencias en una aplicación real? |
+| Creacional | [Factory Method](./ejemplos/creacionales/factory-method.ts) | Crear notificaciones por canal sin acoplar el servicio. | Delega la creación a subclases especializadas. | ¿Cuándo una fábrica simple sería suficiente? |
+| Creacional | [Abstract Factory](./ejemplos/creacionales/abstract-factory.ts) | Crear componentes de una misma familia sin mezclarlos. | Mantiene compatibles los productos relacionados. | ¿Cuánto crece la fábrica al agregar familias? |
+| Creacional | [Singleton](./ejemplos/creacionales/singleton.ts) | Centralizar una configuración única. | Controla la creación de una instancia compartida. | ¿La unicidad es necesaria o introduce estado global? |
+| Creacional | [Builder](./ejemplos/creacionales/builder.ts) | Construir un reporte con muchas opciones legibles. | Encadena pasos y valida el resultado al final. | ¿Cuándo conviene un objeto de opciones? |
+| Creacional | [Prototype](./ejemplos/creacionales/prototype.ts) | Crear variantes a partir de una configuración validada. | Clona una base y copia su estado mutable. | ¿La copia es superficial o profunda? |
+| Estructural | [Adapter](./ejemplos/estructurales/adapter.ts) | Conectar una interfaz nueva con una pasarela antigua. | Traduce el contrato sin modificar el código legado. | ¿Dónde deben vivir las conversiones y validaciones? |
+| Estructural | [Proxy](./ejemplos/estructurales/proxy.ts) | Retrasar y controlar el acceso a un objeto pesado. | Conserva la misma interfaz y carga bajo demanda. | ¿Cómo se manejan errores, caché y concurrencia? |
+| Estructural | [Facade](./ejemplos/estructurales/facade.ts) | Ocultar varios pasos de registro al cliente. | Expone una operación simple sobre un subsistema. | ¿La fachada se convierte en un objeto demasiado grande? |
+| Estructural | [Decorator](./ejemplos/estructurales/decorator.ts) | Combinar extras sin crear una subclase por combinación. | Agrega comportamiento por composición en tiempo de ejecución. | ¿El orden de envoltura cambia el resultado? |
+| Estructural | [Bridge](./ejemplos/estructurales/bridge.ts) | Hacer evolucionar notificaciones y canales por separado. | Separa la abstracción de su implementación. | ¿Qué dimensión debe variar de forma independiente? |
+| Estructural | [Flyweight](./ejemplos/estructurales/flyweight.ts) | Muchos objetos repiten el mismo estilo. | Comparte el estado intrínseco y conserva la posición aparte. | ¿El ahorro de memoria compensa la complejidad? |
+| Comportamiento | [Observer](./ejemplos/comportamiento/observer.ts) | Avisar a varios estudiantes cuando cambia un curso. | Desacopla al emisor de sus suscriptores. | ¿Quién cancela suscripciones y evita fugas? |
+| Comportamiento | [Command](./ejemplos/comportamiento/command.ts) | Botones distintos deben ejecutar operaciones del portal. | Convierte una solicitud en un objeto intercambiable. | ¿Dónde se guardarían historial y deshacer? |
+| Comportamiento | [Chain of Responsibility](./ejemplos/comportamiento/chain-of-responsibility.ts) | Encadenar validaciones que pueden detener una inscripción. | Distribuye el procesamiento entre pasos independientes. | ¿Qué ocurre si ningún eslabón procesa la solicitud? |
+| Comportamiento | [Visitor](./ejemplos/comportamiento/visitor.ts) | Agregar reportes sin cambiar las clases de datos. | Separa operaciones de la estructura visitada. | ¿Qué costo tiene agregar un nuevo tipo de elemento? |
+| Comportamiento | [Mediator](./ejemplos/comportamiento/mediator.ts) | Evitar que los controles de un formulario se conozcan entre sí. | Centraliza la coordinación de eventos. | ¿El mediador termina concentrando demasiada lógica? |
 
-### Guía rápida: estructurales
+## Organización del repositorio
 
-| Problema | Patrón | Pregunta clave |
-| --- | --- | --- |
-| Dos interfaces incompatibles deben colaborar | Adapter | ¿Puedo traducir la interfaz sin modificar el código existente? |
-| Necesito controlar o retrasar el acceso a un objeto | Proxy | ¿Qué lógica debe ocurrir antes de delegar? |
-| Un subsistema tiene demasiados pasos para el cliente | Facade | ¿Cuál es la operación simple que realmente necesita? |
-| Quiero agregar funcionalidades combinables | Decorator | ¿Puedo envolver el objeto en lugar de crear subclases? |
-| Dos jerarquías deben evolucionar por separado | Bridge | ¿Qué parte varía: la abstracción o la implementación? |
-| Muchos objetos comparten información repetida | Flyweight | ¿Qué estado puede almacenarse una sola vez? |
+```text
+ejemplos/
+├── fundamentos/      # librerías, frameworks e inversión de control
+├── solid/            # los cinco principios SOLID
+├── creacionales/     # cómo se crean los objetos
+├── estructurales/    # cómo se ensamblan los objetos
+├── comportamiento/   # cómo colaboran los objetos
+├── index.ts          # ejecuta las 22 demostraciones
+├── package.json      # scripts y dependencia de TypeScript
+├── tsconfig.json     # configuración del compilador
+└── dist/             # salida generada; no se versiona
 
-## Enfoque didáctico
+presentaciones/       # PDFs de las semanas 02 a 05
+```
 
-En cada patrón conviene explicar cuatro cosas: **problema → patrón elegido → razón → riesgo**. Los ejemplos son pequeños de forma intencional para que se pueda observar la responsabilidad de cada clase sin distraerse con una aplicación completa.
+No se implementa Composite: aparece como referencia en la portada de la presentación estructural, pero no se desarrolla durante la clase.
 
-> Nota: Refactoring.Guru sirve como referencia conceptual y de estructura. Los escenarios y el código de este repositorio están escritos para la clase y no son una copia literal de su contenido.
+## Presentaciones
 
-Referencia: [patrones creacionales en Refactoring.Guru](https://refactoring.guru/design-patterns/creational-patterns).
+Las presentaciones permanecen en PDF y siguen el orden cronológico del curso:
+
+- [Semana 02 — Patrones de Diseño, SOLID, Frameworks y Librerías](<./presentaciones/Semana 02 — Patrones de Diseño, SOLID, Frameworks y Librerías.pdf>)
+- [Semana 03 — Patrones de Diseño Creacionales](<./presentaciones/Semana 03 — Patrones de Diseño Creacionales.pdf>)
+- [Semana 04 — Patrones de Diseño Estructurales](<./presentaciones/Semana 04 — Patrones de Diseño Estructurales.pdf>)
+- [Semana 05 — Patrones de Diseño de Comportamiento](<./presentaciones/Semana 05 — Patrones de Diseño de Comportamiento.pdf>)
+
+## Cómo estudiar un ejemplo
+
+Para cada archivo, intenta responder en este orden:
+
+1. **Problema:** ¿qué cambio, dependencia o colaboración resulta difícil?
+2. **Patrón o principio:** ¿qué estructura propone el ejemplo?
+3. **Razón:** ¿qué responsabilidad o variación queda aislada?
+4. **Riesgo:** ¿qué complejidad, costo o abuso puede introducir la solución?
+
+Después de leer el código, modifica un escenario de la función `demo...` y ejecuta de nuevo `npm start`. La implementación es deliberadamente pequeña para que las relaciones entre clases se puedan observar sin el ruido de una aplicación completa.
+
+## Scripts y requisitos
+
+Dentro de `ejemplos/` están disponibles:
+
+| Comando | Propósito |
+| --- | --- |
+| `npm install` | Instala TypeScript. |
+| `npm run check` | Comprueba tipos sin generar archivos. |
+| `npm run build` | Compila los `.ts` en `dist/`. |
+| `npm start` | Ejecuta `dist/index.js` y las 22 demostraciones. |
+
+El proyecto usa npm, requiere Node.js 18 o superior y no necesita dependencias de ejecución externas. `node_modules/`, `dist/` y `.DS_Store` están excluidos mediante `.gitignore`.
+
+## Salida esperada
+
+La salida exacta puede variar si se modifica un ejemplo, pero comienza y termina con una secuencia similar a esta:
+
+```text
+ADS2 · demostraciones de patrones de diseño y SOLID
+
+=== Librería vs. framework ===
+La aplicación llamó a la librería: ANA
+El framework inicia la aplicación.
+...
+=== Mediator ===
+No se puede guardar: faltan datos.
+El formulario habilitó horarios para ADS2.
+Inscripción guardada: ADS2 - Jueves 17:20.
+```
+
+## Metadatos sugeridos para GitHub
+
+El nombre actual del repositorio se conserva como `ejemplos_ayd2_ts`.
+
+- **Descripción:** `Ejemplos prácticos en TypeScript sobre patrones de diseño y principios SOLID para Análisis y Diseño de Sistemas 2.`
+- **Temas:** `typescript`, `design-patterns`, `solid`, `software-design`, `education`, `ads2`
+
+## Licencia
+
+Este material se distribuye bajo la [licencia MIT](./LICENSE).
+
+> Refactoring.Guru puede servir como referencia conceptual para estudiar patrones. Los escenarios y el código de este repositorio están escritos para la clase y no son una copia literal de su contenido.
