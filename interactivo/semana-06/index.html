@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Recorrido interactivo de la Semana 06 de ADS2 sobre catálogos de estilos, arquitectura de la información, UX, UI y patrones de interacción."
+    />
+    <title>Semana 06 | Elementos de Diseño</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230b1016'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='30' fill='%23f4b942'%3E06%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio de la Semana 06">
+        <span class="brand-mark" aria-hidden="true">06</span>
+        <span>
+          <strong>ADS2</strong>
+          <small>Elementos de Diseño</small>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#arquitectura">Arquitectura</a>
+        <a href="#ux-ui">UX / UI</a>
+        <a href="#laboratorio">Laboratorio</a>
+        <a href="#patrones">Patrones</a>
+      </nav>
+      <span class="header-meta">Sección B / Semana 06</span>
+    </header>
+
+    <main id="contenido">
+      <section id="inicio" class="hero section-shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">ANÁLISIS Y DISEÑO DE SISTEMAS 2 <span>/</span> JUEVES 20/08/2026</p>
+          <h1 id="hero-title">Diseñar no es decorar.<br /><em>Es dar sentido.</em></h1>
+          <p class="hero-lede">
+            Una interfaz adecuada conecta identidad de marca, información bien organizada y decisiones de interacción que el usuario puede entender.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#catalogo">Comenzar recorrido <span aria-hidden="true">&#8594;</span></a>
+            <a class="button button-quiet" href="#actividad">Ir a la actividad</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Resumen visual de las cuatro capas del diseño">
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-core">UI</div>
+          <div class="hero-node node-top"><span>UX</span><small>experiencia</small></div>
+          <div class="hero-node node-left"><span>IA</span><small>estructura</small></div>
+          <div class="hero-node node-right"><span>STYLE</span><small>identidad</small></div>
+          <p class="hero-caption">La capa visible funciona cuando las capas invisibles están alineadas.</p>
+        </div>
+      </section>
+
+      <section class="competency-band section-shell" aria-labelledby="competencias-title">
+        <div>
+          <p class="eyebrow">COMPETENCIAS A DESARROLLAR</p>
+          <h2 id="competencias-title">Al finalizar, podrás justificar tus decisiones de diseño.</h2>
+        </div>
+        <div class="competency-list">
+          <article class="competency-item">
+            <span class="number">01</span>
+            <p>Integrar catálogos de estilo según la identidad de una marca u organización.</p>
+          </article>
+          <article class="competency-item">
+            <span class="number">02</span>
+            <p>Identificar el patrón que mejor responde a una necesidad específica.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="catalogo" class="lesson-section section-shell" aria-labelledby="catalogo-title">
+        <div class="section-heading">
+          <p class="eyebrow accent-gold">01 / CATÁLOGO DE ESTILOS</p>
+          <h2 id="catalogo-title">La consistencia convierte la identidad en una interfaz reconocible.</h2>
+          <p>
+            Un catálogo de estilos documenta decisiones repetibles: color, tipografía, tono, iconos, imágenes, componentes y estados.
+          </p>
+        </div>
+
+        <div class="interactive-card">
+          <div class="interactive-toolbar">
+            <div>
+              <p class="micro-label">PRUEBA 01 / CONSISTENCIA VISUAL</p>
+              <h3>Encuentra 4 fallos antes de cambiar a “Propuesta”.</h3>
+            </div>
+            <div class="segmented-control" role="group" aria-label="Cambiar ejemplo de catálogo">
+              <button class="is-active" type="button" data-catalog-view="counterexample" aria-pressed="true">Contraejemplo</button>
+              <button type="button" data-catalog-view="proposal" aria-pressed="false">Propuesta</button>
+            </div>
+          </div>
+          <div class="catalog-demo" data-catalog-demo="counterexample">
+            <div class="catalog-preview" aria-live="polite">
+              <div class="preview-topbar">
+                <span class="preview-logo">AULA</span>
+                <span class="preview-status">Portal universitario</span>
+              </div>
+              <div class="preview-content">
+                <div class="preview-copy">
+                  <span class="preview-kicker">MI ESPACIO</span>
+                  <h4>Continúa tu aprendizaje</h4>
+                  <p>Encuentra tus cursos y recursos en un solo lugar.</p>
+                  <div class="preview-actions">
+                    <button class="preview-button primary" type="button">Ver cursos</button>
+                    <button class="preview-button secondary" type="button">Explorar</button>
+                  </div>
+                </div>
+                <div class="preview-stat" aria-label="Cursos activos">
+                  <strong>04</strong>
+                  <span>cursos activos</span>
+                </div>
+              </div>
+              <div class="preview-message" role="status">Los estilos están definidos en un solo lugar.</div>
+            </div>
+            <div class="token-panel" aria-label="Decisiones documentadas del catálogo">
+              <div class="token-row"><span>Color principal</span><span class="swatches"><i class="swatch swatch-navy"></i><i class="swatch swatch-gold"></i><i class="swatch swatch-red"></i></span></div>
+              <div class="token-row"><span>Tipografía</span><strong class="token-type">Inter / 700</strong></div>
+              <div class="token-row"><span>Espaciado base</span><strong>8 px</strong></div>
+              <div class="token-row"><span>Estado</span><span class="token-chip">hover / focus / error</span></div>
+              <p class="token-note">Un token reduce decisiones repetidas y hace visible la razón de una elección.</p>
+            </div>
+          </div>
+          <p class="interaction-hint"><span aria-hidden="true">&#8627;</span> Primero busca las decisiones absurdas. Luego cambia a “Propuesta” y observa la corrección.</p>
+        </div>
+
+        <div class="concept-strip" aria-label="Elementos de un catálogo de estilos">
+          <span>Identidad</span><span>Color</span><span>Tipografía</span><span>Voz</span><span>Iconos</span><span>Componentes</span><span>Estados</span>
+        </div>
+      </section>
+
+      <section id="arquitectura" class="lesson-section section-shell" aria-labelledby="arquitectura-title">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow accent-blue">02 / ARQUITECTURA DE LA INFORMACIÓN</p>
+            <h2 id="arquitectura-title">Si el usuario no encuentra algo, el problema puede estar antes de la pantalla.</h2>
+          </div>
+          <p>
+            La arquitectura organiza, estructura y etiqueta el contenido para que las personas puedan comprenderlo y encontrarlo.
+          </p>
+        </div>
+
+        <div class="ia-demo interactive-card">
+          <div class="interactive-toolbar">
+            <div>
+              <p class="micro-label">PRUEBA 02 / ORGANIZACIÓN</p>
+              <h3>La misma información puede sentirse simple o imposible.</h3>
+            </div>
+            <div class="segmented-control" role="group" aria-label="Cambiar ejemplo de arquitectura">
+              <button class="is-active" type="button" data-ia-view="counterexample" aria-pressed="true">Antes</button>
+              <button type="button" data-ia-view="proposal" aria-pressed="false">Después</button>
+            </div>
+          </div>
+          <div class="ia-stage" data-ia-demo="counterexample">
+            <div class="ia-sidebar" aria-label="Navegación del portal">
+              <span class="preview-logo">AULA</span>
+              <p class="nav-caption">MENÚ PRINCIPAL</p>
+              <ul class="bad-nav">
+                <li><button type="button">Cosas</button></li>
+                <li><button type="button">Más cosas</button></li>
+                <li><button type="button">Lo importante</button></li>
+                <li><button type="button">Cajón de sastre</button></li>
+              </ul>
+            </div>
+            <div class="ia-content">
+              <div class="ia-content-header"><span class="preview-kicker">PÁGINA ACTUAL</span><strong>Inicio</strong></div>
+              <div class="ia-placeholder-grid"><div></div><div></div><div></div></div>
+              <div class="ia-explanation" role="status"><strong>FALLA 01</strong> Etiquetas ambiguas obligan al usuario a jugar “¿dónde estará?”.</div>
+            </div>
+          </div>
+          <div class="ia-principles">
+            <span><strong>Organizar</strong> agrupar lo relacionado</span>
+            <span><strong>Etiquetar</strong> nombrar con claridad</span>
+            <span><strong>Encontrar</strong> reducir el esfuerzo</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="ux-ui" class="lesson-section section-shell" aria-labelledby="ux-ui-title">
+        <div class="section-heading">
+          <p class="eyebrow accent-red">03 / UX Y UI</p>
+          <h2 id="ux-ui-title">UX decide si la experiencia tiene sentido; UI hace visible esa decisión.</h2>
+          <p>
+            UX investiga necesidades, estructura recorridos y valida la experiencia. UI define composición, componentes, estados y lenguaje visual.
+          </p>
+        </div>
+
+        <div class="lens-switcher" role="group" aria-label="Explorar las capas del diseño">
+          <button class="lens-button is-active" type="button" data-lens="ux" aria-pressed="true"><span>UX</span><small>necesidad y recorrido</small></button>
+          <button class="lens-button" type="button" data-lens="ui" aria-pressed="false"><span>UI</span><small>forma y respuesta</small></button>
+          <button class="lens-button" type="button" data-lens="ia" aria-pressed="false"><span>IA</span><small>orden y acceso</small></button>
+          <button class="lens-button" type="button" data-lens="catalog" aria-pressed="false"><span>STYLE</span><small>reglas y consistencia</small></button>
+        </div>
+        <div class="lens-detail interactive-card" aria-live="polite">
+          <p class="micro-label">PREGUNTA GUÍA</p>
+          <h3>¿Qué necesita lograr la persona y qué evidencia nos demuestra que lo logró?</h3>
+          <div class="lens-detail-grid">
+            <div><strong>Investigación</strong><span>Comprender el contexto antes de diseñar.</span></div>
+            <div><strong>Prototipo</strong><span>Probar una idea antes de construirla.</span></div>
+            <div><strong>Validación</strong><span>Detectar fricciones y corregirlas.</span></div>
+          </div>
+        </div>
+
+        <div class="form-demo interactive-card" data-mode="counterexample">
+          <div class="interactive-toolbar">
+            <div>
+              <p class="micro-label">PRUEBA 03 / RETROALIMENTACIÓN</p>
+              <h3>Un formulario también comunica el estado del sistema.</h3>
+            </div>
+            <div class="segmented-control" role="group" aria-label="Cambiar estado del formulario">
+              <button class="is-active" type="button" data-form-mode="counterexample" aria-pressed="true">Contraejemplo</button>
+              <button type="button" data-form-mode="proposal" aria-pressed="false">Propuesta</button>
+            </div>
+          </div>
+          <form id="demo-form" class="demo-form" novalidate>
+            <label for="student-name">Nombre del estudiante</label>
+            <input id="student-name" name="student-name" autocomplete="name" placeholder="Ej. Ana López" />
+            <label for="student-course">Curso</label>
+            <select id="student-course" name="student-course">
+              <option value="">Selecciona un curso</option>
+              <option value="ads2">Análisis y Diseño de Sistemas 2</option>
+              <option value="ux">Diseño centrado en el usuario</option>
+            </select>
+            <button class="button button-primary" type="submit">Guardar inscripción</button>
+            <p id="form-feedback" class="form-feedback is-error" aria-live="polite">No se pudo guardar. Revisa los datos. ¿Cuáles? Sorpresa.</p>
+            <p class="form-warning" data-form-warning>FALLA: mensaje genérico + campos que parecen una auditoría fiscal.</p>
+          </form>
+          <aside class="form-diagnosis" aria-live="polite">
+            <p class="micro-label">DIAGNÓSTICO</p>
+            <div class="diagnosis-item is-bad"><strong>FALLA 01</strong><span>El mensaje dice que falló, pero no qué campo corregir.</span></div>
+            <div class="diagnosis-item is-bad"><strong>FALLA 02</strong><span>El botón no muestra si está guardando, bloqueado o terminado.</span></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="laboratorio" class="lesson-section lab-section section-shell" aria-labelledby="laboratorio-title">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow accent-blue">LABORATORIO AMPLIADO</p>
+            <h2 id="laboratorio-title">Tres pruebas para aprender a diseñar y a no diseñar.</h2>
+          </div>
+          <p>Alterna cada ejemplo y abre la explicación. La pregunta siempre es la misma: ¿qué falla, por qué importa y cómo se corrige?</p>
+        </div>
+
+        <div class="lab-grid">
+          <article class="lab-card interactive-card" data-lab="accessibility" data-mode="counterexample">
+            <div class="lab-card-header">
+              <div><p class="micro-label">PRUEBA 04 / ACCESIBILIDAD</p><h3>¿Se puede leer y operar?</h3></div>
+              <div class="segmented-control" role="group" aria-label="Cambiar ejemplo de accesibilidad">
+                <button class="is-active" type="button" data-lab-view="accessibility-counterexample" aria-pressed="true">Mal</button>
+                <button type="button" data-lab-view="accessibility-proposal" aria-pressed="false">Bien</button>
+              </div>
+            </div>
+            <div class="lab-preview accessibility-preview" aria-live="polite">
+              <div class="contrast-sample">Texto gris clarito que casi no se ve</div>
+              <div class="icon-actions"><button type="button" aria-label="Acción sin texto">...</button><button type="button" aria-label="Otra acción sin texto">?</button></div>
+              <p class="lab-status">Foco invisible. Si usas teclado, buena suerte.</p>
+            </div>
+            <details class="lab-explanation"><summary>Ver qué falla y cómo corregirlo</summary><div class="lab-answer"><p><strong>Falla:</strong> contraste bajo, controles sin significado visible y foco imperceptible.</p><p><strong>Corrección:</strong> contraste suficiente, etiquetas claras, foco visible y acciones que no dependan solo de un icono.</p></div></details>
+          </article>
+
+          <article class="lab-card interactive-card" data-lab="states" data-mode="counterexample">
+            <div class="lab-card-header">
+              <div><p class="micro-label">PRUEBA 05 / ESTADOS</p><h3>¿La interfaz responde?</h3></div>
+              <div class="segmented-control" role="group" aria-label="Cambiar ejemplo de estados">
+                <button class="is-active" type="button" data-lab-view="states-counterexample" aria-pressed="true">Mal</button>
+                <button type="button" data-lab-view="states-proposal" aria-pressed="false">Bien</button>
+              </div>
+            </div>
+            <div class="lab-preview states-preview" aria-live="polite">
+              <button class="state-button" type="button">Guardar</button>
+              <span class="state-indicator">...</span>
+              <p class="lab-status">La pantalla no cambia. El usuario vuelve a hacer clic 17 veces.</p>
+            </div>
+            <details class="lab-explanation"><summary>Ver qué falla y cómo corregirlo</summary><div class="lab-answer"><p><strong>Falla:</strong> no hay estado de carga, confirmación ni error. La persona no sabe si debe esperar o repetir.</p><p><strong>Corrección:</strong> mostrar reposo, foco, carga, éxito y error con mensajes específicos.</p></div></details>
+          </article>
+
+          <article class="lab-card interactive-card" data-lab="hierarchy" data-mode="counterexample">
+            <div class="lab-card-header">
+              <div><p class="micro-label">PRUEBA 06 / JERARQUÍA VISUAL</p><h3>¿Qué debe mirar primero?</h3></div>
+              <div class="segmented-control" role="group" aria-label="Cambiar ejemplo de jerarquía visual">
+                <button class="is-active" type="button" data-lab-view="hierarchy-counterexample" aria-pressed="true">Mal</button>
+                <button type="button" data-lab-view="hierarchy-proposal" aria-pressed="false">Bien</button>
+              </div>
+            </div>
+            <div class="lab-preview hierarchy-preview" aria-live="polite">
+              <span class="hierarchy-kicker">TODO ES IMPORTANTE</span>
+              <h4>Panel de estudiante</h4>
+              <p>Texto principal, texto secundario, texto terciario, aviso, promoción y otra cosa más.</p>
+              <div class="hierarchy-actions"><button type="button">Acción A</button><button type="button">Acción B</button><button type="button">Acción C</button></div>
+            </div>
+            <details class="lab-explanation"><summary>Ver qué falla y cómo corregirlo</summary><div class="lab-answer"><p><strong>Falla:</strong> todos los elementos compiten por atención y ninguna acción parece prioritaria.</p><p><strong>Corrección:</strong> usar tamaño, posición, contraste y espacio para construir una lectura clara.</p></div></details>
+          </article>
+        </div>
+      </section>
+
+      <section id="patrones" class="lesson-section pattern-section section-shell" aria-labelledby="patrones-title">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow accent-violet">04 / PATRONES DE INTERACCIÓN</p>
+            <h2 id="patrones-title">El síntoma del problema puede sugerir el patrón.</h2>
+          </div>
+          <p>
+            No se trata de memorizar nombres: se trata de reconocer qué responsabilidad conviene separar y justificar el costo de hacerlo.
+          </p>
+        </div>
+
+        <div class="pattern-lab interactive-card">
+          <div class="pattern-list" role="list" aria-label="Necesidades y patrones">
+            <button class="pattern-option is-active" type="button" data-pattern="observer" aria-pressed="true"><span>Observer</span><small>muchos receptores necesitan enterarse</small></button>
+            <button class="pattern-option" type="button" data-pattern="command" aria-pressed="false"><span>Command</span><small>una acción debe ser intercambiable</small></button>
+            <button class="pattern-option" type="button" data-pattern="mediator" aria-pressed="false"><span>Mediator</span><small>los controles se conocen demasiado</small></button>
+            <button class="pattern-option" type="button" data-pattern="abstract-factory" aria-pressed="false"><span>Abstract Factory</span><small>necesitas una familia coherente</small></button>
+          </div>
+          <div class="pattern-detail" aria-live="polite">
+            <p class="micro-label">DECISIÓN SUGERIDA</p>
+            <span class="pattern-badge">Observer</span>
+            <h3>Suscribir componentes a un flujo de eventos.</h3>
+            <p>Úsalo cuando un cambio, como activar un aviso o cambiar el tema, debe notificar a varios elementos sin que el emisor conozca cada receptor.</p>
+            <div class="pattern-flow"><span>Evento</span><i aria-hidden="true">&#8594;</i><span>Suscriptores</span><i aria-hidden="true">&#8594;</i><span>Respuesta</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson-section bad-gallery section-shell" aria-labelledby="bad-gallery-title">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow accent-red">MUSEO DE ERRORES</p>
+            <h2 id="bad-gallery-title">Ejemplos tan malos que casi dan risa.</h2>
+          </div>
+          <p>Haz clic en cada caso. La exageración ayuda a reconocer problemas que en una interfaz real suelen aparecer de forma más discreta.</p>
+        </div>
+        <div class="bad-gallery-grid">
+          <button class="bad-example" type="button" data-joke="button" aria-expanded="false">
+            <span class="bad-example-number">01 / UI</span>
+            <strong>El botón kamikaze</strong>
+            <span class="joke-visual"><i>Guardar</i><i>Borrar todo</i></span>
+            <span class="bad-example-answer"><b>Falla:</b> dos acciones con el mismo peso visual. El usuario puede borrar su trabajo por accidente.</span>
+          </button>
+          <button class="bad-example" type="button" data-joke="menu" aria-expanded="false">
+            <span class="bad-example-number">02 / IA</span>
+            <strong>El menú cajón de sastre</strong>
+            <span class="joke-visual joke-menu"><i>Más</i><i>Otros</i><i>Varios</i><i>Cosas</i></span>
+            <span class="bad-example-answer"><b>Falla:</b> etiquetas vagas. Si todo termina en “Más”, la arquitectura dejó de ayudar.</span>
+          </button>
+          <button class="bad-example" type="button" data-joke="error" aria-expanded="false">
+            <span class="bad-example-number">03 / UX</span>
+            <strong>El error fantasma</strong>
+            <span class="joke-visual joke-error">Algo salió mal ¯\_(ツ)_/¯</span>
+            <span class="bad-example-answer"><b>Falla:</b> no explica qué pasó ni cómo recuperarse. El usuario recibe misterio, no retroalimentación.</span>
+          </button>
+          <button class="bad-example" type="button" data-joke="type" aria-expanded="false">
+            <span class="bad-example-number">04 / STYLE</span>
+            <strong>La sopa de tipografías</strong>
+            <span class="joke-visual joke-type"><i>Aa</i><i>Aa</i><i>Aa</i></span>
+            <span class="bad-example-answer"><b>Falla:</b> sin jerarquía ni identidad. Parece que cuatro equipos discutieron en un chat.</span>
+          </button>
+        </div>
+      </section>
+
+      <section id="actividad" class="activity-section section-shell" aria-labelledby="actividad-title">
+        <div class="activity-copy">
+          <p class="eyebrow accent-gold">ACTIVIDAD EN CLASE</p>
+          <h2 id="actividad-title">Rediseña una pantalla sin empezar por los colores.</h2>
+          <p>Usa el recorrido para detectar qué falla primero: la identidad, la estructura, la experiencia o la interfaz.</p>
+        </div>
+        <div class="activity-list">
+          <button type="button" data-check="problem"><span class="check-box" aria-hidden="true"></span><span><strong>01</strong> Describe el problema observable.</span></button>
+          <button type="button" data-check="layer"><span class="check-box" aria-hidden="true"></span><span><strong>02</strong> Identifica la capa afectada.</span></button>
+          <button type="button" data-check="decision"><span class="check-box" aria-hidden="true"></span><span><strong>03</strong> Propón una mejora y justifica el patrón.</span></button>
+        </div>
+        <p class="activity-progress" role="status" aria-live="polite">0 de 3 decisiones registradas.</p>
+      </section>
+
+      <section class="closing-section section-shell" aria-labelledby="cierre-title">
+        <div>
+          <p class="eyebrow">CONCEPTOS CLAVE</p>
+          <h2 id="cierre-title">La mejor interfaz hace visible una buena decisión.</h2>
+        </div>
+        <div class="closing-grid">
+          <span>Identidad</span><span>Consistencia</span><span>Organización</span><span>Experiencia</span><span>Interfaz</span><span>Patrones</span>
+        </div>
+        <div class="references">
+          <p class="micro-label">REFERENCIAS PARA CONTINUAR</p>
+          <a href="https://www.codecademy.com/article/what-are-ui-and-ux-design" target="_blank" rel="noreferrer">Codecademy / UI y UX</a>
+          <a href="https://neoland.es/que-es-el-ux-ui-design/" target="_blank" rel="noreferrer">Neoland / UX y UI</a>
+          <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank" rel="noreferrer">W3C / Accesibilidad</a>
+        </div>
+        <div class="forum-callout">
+          <p class="eyebrow accent-red">FORO DE LA SEMANA</p>
+          <p>¿Qué problema de una interfaz usas con frecuencia y qué decisión de diseño cambiarías primero?</p>
+          <span>Semana 6 / 25 al 30 de agosto</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <span>ADS2 / Sección B</span>
+      <span>Semana 06 / Elementos de Diseño</span>
+      <span>Diseñar es decidir.</span>
+    </footer>
+
+    <noscript>
+      <p class="noscript-message">Esta experiencia necesita JavaScript para activar los ejemplos interactivos. El contenido principal sigue disponible en esta página.</p>
+    </noscript>
+  </body>
+</html>

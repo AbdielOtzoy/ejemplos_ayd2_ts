@@ -95,6 +95,16 @@ Las presentaciones permanecen en PDF y siguen el orden cronológico del curso:
 - [Semana 04 — Patrones de Diseño Estructurales](<./presentaciones/Semana 04 — Patrones de Diseño Estructurales.pdf>)
 - [Semana 05 — Patrones de Diseño de Comportamiento](<./presentaciones/Semana 05 — Patrones de Diseño de Comportamiento.pdf>)
 
+## Semana 06 — Elementos de Diseño
+
+La semana 6 conecta identidad visual, arquitectura de la información, UX, UI y patrones de interacción.
+
+- [Presentación editable en PowerPoint](<./presentaciones/Semana 06 — Elementos de Diseño.pptx>)
+- [Presentación en PDF](<./presentaciones/Semana 06 — Elementos de Diseño.pdf>)
+- [Demo interactiva en HTML, CSS y JavaScript](./interactivo/semana-06/index.html)
+
+La demo no requiere dependencias ni compilación. Puede abrirse directamente desde `interactivo/semana-06/index.html` o servirse desde la raíz del repositorio con un servidor estático.
+
 ## Cómo estudiar un ejemplo
 
 Para cada archivo, intenta responder en este orden:
