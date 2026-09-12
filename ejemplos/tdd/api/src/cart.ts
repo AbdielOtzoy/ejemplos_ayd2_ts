@@ -51,6 +51,11 @@ export class Cart {
     return [...this.items.values()].map((item) => ({ ...item }));
   }
 
+  // Permite iniciar cada escenario con un carrito limpio.
+  clear(): void {
+    this.items.clear();
+  }
+
   getSummary(zona: Zona): CartSummary {
     if (zona !== "local" && zona !== "foranea") {
       throw new Error("La zona debe ser local o foranea");

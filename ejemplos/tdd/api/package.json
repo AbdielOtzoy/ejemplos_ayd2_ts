@@ -7,10 +7,16 @@
     "build": "tsc",
     "check": "tsc --noEmit",
     "start": "node dist/server.js",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "perf:load": "k6 run perf/load.ts",
+    "perf:stress": "k6 run perf/stress.ts",
+    "perf:spike": "k6 run perf/spike.ts",
+    "perf:soak": "k6 run perf/soak.ts",
+    "check:perf": "tsc --noEmit -p tsconfig.k6.json"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
+    "@types/k6": "^2.2.0",
     "@types/node": "^22.10.2",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",

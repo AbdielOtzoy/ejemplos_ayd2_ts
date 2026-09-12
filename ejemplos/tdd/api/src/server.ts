@@ -5,6 +5,14 @@ const port = 3001;
 const cart = new Cart();
 
 const server = createServer((request, response) => {
+  // Endpoint de apoyo para pruebas: no pertenece a las reglas de negocio.
+  if (request.method === "DELETE" && request.url === "/carrito") {
+    cart.clear();
+    response.writeHead(204);
+    response.end();
+    return;
+  }
+
   if (request.method === "GET" && request.url === "/health") {
     response.writeHead(200, { "Content-Type": "application/json" });
     response.end(JSON.stringify({ status: "ok" }));
