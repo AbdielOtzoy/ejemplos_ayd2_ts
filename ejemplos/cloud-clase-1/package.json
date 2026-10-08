@@ -1,0 +1,8 @@
+{
+  "name": "ads2-cloud-clase-1",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node build.mjs" },
+  "engines": { "node": "22.x" }
+}

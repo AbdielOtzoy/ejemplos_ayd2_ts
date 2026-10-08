@@ -158,3 +158,7 @@ El nombre actual del repositorio se conserva como `ejemplos_ayd2_ts`.
 Este material se distribuye bajo la [licencia MIT](./LICENSE).
 
 > Refactoring.Guru puede servir como referencia conceptual para estudiar patrones. Los escenarios y el código de este repositorio están escritos para la clase y no son una copia literal de su contenido.
+
+## Clase 1 — Despliegue en una PaaS con Vercel
+
+[Paquete docente de 100 minutos](ejemplos/cloud-clase-1/README.md): presentación editable de 18 diapositivas, guion, Docker local, publicación estática en Vercel, diagramas de publicación y peticiones, consumo y respaldo visual. Terraform y Ansible quedan para comparar automatización en IaaS en la siguiente clase.

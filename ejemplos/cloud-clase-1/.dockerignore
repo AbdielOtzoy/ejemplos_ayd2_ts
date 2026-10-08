@@ -1,0 +1,8 @@
+**/.DS_Store
+*.md
+diagramas/
+respaldo/
+*.tar.gz
+public/
+node_modules/
+.vercel/
