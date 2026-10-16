@@ -1,0 +1,14 @@
+# Generado por Terraform. No editar a mano.
+[staging]
+%{ for ip in staging ~}
+${ip}
+%{ endfor ~}
+
+[prod]
+%{ for ip in prod ~}
+${ip}
+%{ endfor ~}
+
+[web:children]
+staging
+prod

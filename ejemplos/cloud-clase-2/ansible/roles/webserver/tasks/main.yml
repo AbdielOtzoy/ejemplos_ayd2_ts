@@ -1,0 +1,36 @@
+- name: Instalar nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+
+- name: Directorio de la web
+  ansible.builtin.file:
+    path: "{{ web_root }}"
+    state: directory
+    mode: "0755"
+
+- name: Publicar HTML de la versión elegida
+  ansible.builtin.copy:
+    content: "{{ lookup('file', web_src + '/' + web_version + '/index.html') | replace('AMBIENTE_DEMO', ambiente) }}"
+    dest: "{{ web_root }}/index.html"
+    mode: "0644"
+
+- name: Publicar estilos e imagen
+  ansible.builtin.copy:
+    src: "{{ web_src }}/{{ item }}"
+    dest: "{{ web_root }}/"
+    mode: "0644"
+  loop: [styles.css, assets]
+
+- name: Configurar sitio de nginx
+  ansible.builtin.template:
+    src: site.conf.j2
+    dest: /etc/nginx/sites-available/default
+    mode: "0644"
+  notify: Recargar nginx
+
+- name: nginx activo al arrancar
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: true

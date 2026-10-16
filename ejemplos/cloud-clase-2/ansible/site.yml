@@ -1,0 +1,6 @@
+# Versión 2: el playbook solo compone roles.
+- hosts: web
+  become: true
+  roles:
+    - common
+    - webserver

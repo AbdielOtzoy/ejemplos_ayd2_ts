@@ -1,0 +1,8 @@
+# Gestionado por Ansible (rol webserver). Los cambios manuales se sobrescriben.
+server {
+    listen {{ web_port }} default_server;
+    root {{ web_root }};
+    index index.html;
+    add_header X-Ambiente "{{ ambiente }}";
+    add_header X-Version "{{ web_version }}";
+}

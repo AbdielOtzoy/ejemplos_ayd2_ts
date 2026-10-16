@@ -1,0 +1,4 @@
+- name: Recargar nginx
+  ansible.builtin.service:
+    name: nginx
+    state: reloaded
