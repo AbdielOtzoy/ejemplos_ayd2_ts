@@ -1,0 +1,172 @@
+1
+00:00:00,650 --> 00:00:11,442
+¿Por qué un cambio pequeño termina afectando tantas
+partes del programa? Muchas veces, el problema está en
+cómo repartimos responsabilidades y conectamos las
+clases.
+
+2
+00:00:11,662 --> 00:00:22,548
+SOLID reúne cinco principios de diseño orientado a
+objetos. Sirven para razonar sobre cambios, contratos
+y dependencias, usando ejemplos concretos del curso.
+
+3
+00:00:22,768 --> 00:00:32,082
+La S significa responsabilidad única. Una clase
+debería tener una razón coherente para cambiar, ligada
+a una responsabilidad del sistema.
+
+4
+00:00:32,302 --> 00:00:41,724
+En nuestro ejemplo, CalculadoraPago calcula el
+salario, ReporteHoras genera el reporte y
+RepositorioEmpleados se encarga de guardar los datos.
+
+5
+00:00:41,944 --> 00:00:51,849
+Una modificación en el formato del reporte llega a
+ReporteHoras. Cambiar la fórmula de pago afecta a
+CalculadoraPago, sin mezclar ambas decisiones.
+
+6
+00:00:52,069 --> 00:01:00,096
+Esto no significa que cada clase deba tener un solo
+método. La pregunta es qué cambios pertenecen a la
+misma responsabilidad.
+
+7
+00:01:00,316 --> 00:01:10,124
+La O significa abierto y cerrado. Queremos extender un
+comportamiento sin modificar repetidamente la lógica
+estable que ya utiliza ese comportamiento.
+
+8
+00:01:10,344 --> 00:01:21,213
+La función calcularNomina recorre objetos que cumplen
+EmpleadoPagable. Cada empleado proporciona su propio
+método calcularPago, y la función utiliza ese
+contrato.
+
+9
+00:01:21,433 --> 00:01:30,887
+EmpleadoTiempoCompleto devuelve su salario mensual.
+EmpleadoPorHora multiplica las horas por la tarifa. La
+nómina trabaja igual con ambos tipos.
+
+10
+00:01:31,107 --> 00:01:41,666
+Si aparece un empleado por comisión, podemos
+incorporar otra implementación. El punto donde
+construimos la colección todavía debe elegir los
+objetos adecuados.
+
+11
+00:01:41,886 --> 00:01:51,769
+La L corresponde a sustitución de Liskov. Un subtipo
+debe poder utilizarse donde se espera su tipo base,
+respetando las promesas de comportamiento.
+
+12
+00:01:51,989 --> 00:02:01,103
+Si todas las aves prometieran volar, un pingüino
+rompería esa expectativa. Lanzar un error desde volar
+no resolvería el problema del contrato.
+
+13
+00:02:01,323 --> 00:02:10,858
+El ejemplo define Ave con comer, y AveVoladora añade
+la capacidad de volar. Aguila extiende AveVoladora;
+Pinguino extiende solamente Ave.
+
+14
+00:02:11,078 --> 00:02:22,602
+Alimentar acepta ambas aves. HacerVolar exige
+AveVoladora. Además de las firmas, debemos respetar
+resultados, condiciones válidas y expectativas sobre
+errores.
+
+15
+00:02:22,822 --> 00:02:33,859
+La I significa segregación de interfaces. Un cliente
+debería depender de las operaciones que realmente
+necesita, evitando contratos enormes con capacidades
+ajenas.
+
+16
+00:02:34,079 --> 00:02:45,036
+Tenemos tres interfaces: Imprimible, Escaneable y
+Faxable. Una impresora básica implementa Imprimible,
+mientras una multifuncional puede implementar las
+tres.
+
+17
+00:02:45,256 --> 00:02:55,119
+La función imprimirDocumento recibe un Imprimible.
+Puede usar ambos dispositivos sin exigir escaneo o
+fax, ni obligar a implementar métodos vacíos.
+
+18
+00:02:55,339 --> 00:03:03,818
+La D significa inversión de dependencias. La lógica de
+alto nivel y los detalles técnicos deben apoyarse en
+abstracciones adecuadas.
+
+19
+00:03:04,038 --> 00:03:14,578
+UsuarioService recibe un RepositorioUsuarios por
+constructor. Ese contrato declara buscarPorCorreo, que
+es la operación que el servicio necesita para saludar.
+
+20
+00:03:14,798 --> 00:03:26,112
+RepositorioEnMemoria y RepositorioSqlSimulado
+implementan el mismo contrato. Podemos elegir
+cualquiera al construir el servicio, sin cambiar su
+lógica de saludo.
+
+21
+00:03:26,332 --> 00:03:37,029
+Pasar una dependencia por constructor es inyección de
+dependencias. La inversión consiste en orientar el
+diseño hacia el contrato, separándolo de los detalles
+concretos.
+
+22
+00:03:37,249 --> 00:03:48,467
+Los principios se complementan. Responsabilidad única
+organiza los motivos de cambio, mientras abierto y
+cerrado permite agregar variantes alrededor de
+contratos estables.
+
+23
+00:03:48,687 --> 00:04:00,395
+Liskov protege las expectativas de esos contratos.
+Segregación mantiene pequeñas las capacidades
+necesarias, e inversión reduce la dependencia directa
+sobre detalles técnicos.
+
+24
+00:04:00,615 --> 00:04:10,078
+Aplicarlos exige criterio. Crear una interfaz para
+cada clase o una jerarquía para cada decisión puede
+aumentar el trabajo sin mejorar el diseño.
+
+25
+00:04:10,298 --> 00:04:20,431
+Empieza por cambios reales, límites claros y contratos
+que puedas explicar. Extrae una abstracción cuando
+represente una necesidad concreta del programa.
+
+26
+00:04:20,651 --> 00:04:30,642
+Para revisar tu diseño, pregunta: ¿qué hace cambiar
+esta clase? ¿Cómo agrego una variante? ¿Puedo
+sustituir sus implementaciones sin sorpresas?
+
+27
+00:04:30,862 --> 00:04:41,839
+Después revisa: ¿cada cliente recibe solo las
+capacidades necesarias? ¿La lógica de negocio depende
+de un contrato adecuado? Esas cinco preguntas resumen
+SOLID.

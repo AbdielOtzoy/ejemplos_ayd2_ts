@@ -1,0 +1,175 @@
+1
+00:00:00,650 --> 00:00:12,009
+Cuando una aplicación necesita enviar una
+notificación, ¿quién decide si debe crear un correo o
+un SMS? Esa decisión parece pequeña, hasta que
+aparecen más canales.
+
+2
+00:00:12,229 --> 00:00:20,177
+Factory Method organiza la creación:
+CreadorNotificacion conserva el flujo común y trabaja
+con la interfaz Notificacion.
+
+3
+00:00:20,397 --> 00:00:29,505
+Imaginemos que el método avisar contiene un if para
+Email y otro para SMS. En cada rama, el servicio
+construye una clase concreta.
+
+4
+00:00:29,725 --> 00:00:39,479
+Ahora esa clase conoce los canales, los constructores
+y quizá sus detalles de configuración. La lógica de
+negocio empieza a depender de cada proveedor.
+
+5
+00:00:39,699 --> 00:00:49,448
+Cada canal nuevo obliga a tocar esa misma clase. Si el
+proyecto crece, el if se extiende y una modificación
+puede afectar rutas que ya funcionaban.
+
+6
+00:00:49,668 --> 00:01:00,006
+Factory Method propone mover la decisión de creación a
+un método de fábrica. El creador conserva una
+operación común, pero no construye el producto
+directamente.
+
+7
+00:01:00,226 --> 00:01:07,656
+Una clase creadora declara ese método; sus subclases
+lo redefinen para elegir qué notificación concreta
+entregar.
+
+8
+00:01:07,876 --> 00:01:14,143
+Así, el flujo de envío permanece en un lugar, y la
+elección del producto cambia mediante el creador.
+
+9
+00:01:14,363 --> 00:01:22,481
+En el ejemplo, Notificacion es la interfaz del
+producto. Declara enviar con un mensaje; avisar
+trabaja con ese contrato.
+
+10
+00:01:22,701 --> 00:01:31,791
+EmailNotificacion y SmsNotificacion son productos
+concretos. Cada uno implementa enviar, aunque el canal
+real de entrega cambia.
+
+11
+00:01:32,011 --> 00:01:39,999
+CreadorNotificacion es el creador. Define
+crearNotificacion y también la operación avisar, que
+contiene el trabajo común.
+
+12
+00:01:40,219 --> 00:01:50,309
+En TypeScript, crearNotificacion está marcado como
+abstracto y protegido. La clase base no elige un
+canal; obliga a cada subclase a decidirlo.
+
+13
+00:01:50,529 --> 00:01:58,993
+CreadorEmail redefine el método y devuelve un
+EmailNotificacion. CreadorSms hace lo mismo con
+SmsNotificacion.
+
+14
+00:01:59,213 --> 00:02:05,887
+El tipo de retorno es Notificacion, así avisar usa
+enviar sin preguntar qué clase concreta recibió.
+
+15
+00:02:06,107 --> 00:02:12,941
+Veamos el recorrido. El cliente crea un CreadorEmail y
+llama a avisar con el mensaje de confirmación del
+pedido.
+
+16
+00:02:13,161 --> 00:02:20,815
+Avisar invoca crearNotificacion. Esa llamada llega a
+CreadorEmail, que produce el objeto EmailNotificacion.
+
+17
+00:02:21,035 --> 00:02:30,058
+Después, avisar llama enviar sobre la interfaz
+Notificacion. El creador coordina la operación; el
+producto concreto realiza el envío.
+
+18
+00:02:30,278 --> 00:02:39,845
+Si el cliente usa CreadorSms, el mismo método avisar
+recorre la misma operación, pero el producto ahora es
+SmsNotificacion.
+
+19
+00:02:40,065 --> 00:02:48,259
+Por eso, el cliente cambia de canal al elegir otro
+creador. La operación de negocio no necesita ramas
+para Email y SMS.
+
+20
+00:02:48,479 --> 00:02:57,254
+En la demo, ambas llamadas muestran mensajes distintos
+en consola. En una aplicación real, enviar conectaría
+con el proveedor del canal.
+
+21
+00:02:57,474 --> 00:03:06,244
+Para sumar WhatsApp, crearíamos un producto
+WhatsAppNotificacion y un creador CreadorWhatsApp.
+Ambos respetan el contrato común.
+
+22
+00:03:06,464 --> 00:03:14,956
+El resto del flujo puede seguir usando avisar y
+enviar. Agregar un canal significa extender las
+clases, no meter otra rama allí.
+
+23
+00:03:15,176 --> 00:03:23,946
+Ojo: algún punto de entrada todavía debe elegir qué
+creador usar. Factory Method concentra la decisión; no
+la hace desaparecer.
+
+24
+00:03:24,166 --> 00:03:31,547
+Conviene cuando la clase usa productos de una
+interfaz, pero cada variante necesita una forma
+distinta de crearse.
+
+25
+00:03:31,767 --> 00:03:38,154
+También ayuda si esperamos nuevas variantes y queremos
+mantener estable la operación que trabaja con ellas.
+
+26
+00:03:38,374 --> 00:03:44,692
+Funciona mejor cuando los creadores concretos encajan
+con la estructura de herencia que ya tiene el diseño.
+
+27
+00:03:44,912 --> 00:03:53,089
+El costo es crear una jerarquía de creadores, y
+conservar al menos un punto del programa que conozca
+cuál instancia concreta elegir.
+
+28
+00:03:53,309 --> 00:04:01,589
+Si solo hay dos objetos muy simples y la lógica apenas
+cambia, una función de fábrica o un if pequeño puede
+resultar más directo.
+
+29
+00:04:01,809 --> 00:04:10,320
+Recuerda el recorrido: el creador declara el factory
+method, las subclases deciden el producto, y avisar
+llama a su interfaz común.
+
+30
+00:04:10,540 --> 00:04:16,371
+El patrón es útil para variar la creación sin
+dispersar las dependencias sobre clases concretas.
