@@ -1,6 +1,0 @@
-# Inputs del rol: cualquiera puede sobrescribirlos (group_vars, -e, etc.).
-web_version: v1
-ambiente: demo
-web_port: 80
-web_root: /var/www/ads2
-web_src: "{{ playbook_dir }}/../../cloud-clase-1/web"
